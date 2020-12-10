@@ -187,7 +187,6 @@ public class SatelliteAlerter {
 
                     }
 
-                    //currDateTime.format(DateTimeFormatter.ISO_INSTANT) crashed so looks into later. Possibly fixed in a later version of Java8. Remove extra O's as a workaround and add Z to the toString for now.
                     //Skip lines if voltageReadings & thremostatReadings is already three for the same satelliteID and there is already an entry in the intervalMap for this specific satellite.
                     addVoltage = false;
                     addThermo = false;
@@ -220,7 +219,7 @@ public class SatelliteAlerter {
 
             }
 
-            //In case there are leftovers in the final 5 minute window. Could not be easily moved to function as wriiten earlier but will look into it later.
+            //In case there are leftovers in the final 5 minute window. 
             if (!intervalMap.isEmpty()) {
                 intervalMap.entrySet().parallelStream().forEach(e -> {
                     JSONObject currentJSON = new JSONObject()
